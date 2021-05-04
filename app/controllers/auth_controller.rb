@@ -1,18 +1,19 @@
 class AuthController < ApplicationController
 
     def create
-        user = User.find_by(username: params[:username])
+        # user = User.find_by(username: params[:username])
     
-        if user && user.authenticate(params[:password])
-          payload = { user_id: user.id }
-          hmac_secret = 'S3CR3T'
+        # if user && user.authenticate(params[:password])
+        #   payload = { user_id: user.id }
+        #   hmac_secret = 'S3CR3T'
     
-          token = JWT.encode(payload, hmac_secret, 'HS256')
+        #   token = JWT.encode(payload, hmac_secret, 'HS256')
     
-          render json: { user: UserSerializer.new(user), token: token } 
-        else
-          render json: { error: 'Invalid username or password.'}
-        end
+        #   render json: { user: UserSerializer.new(user), token: token } 
+        # else
+        #   render json: { error: 'Invalid username or password.'}
+        # end
+        render json: {hello: world}
           
     end
     
